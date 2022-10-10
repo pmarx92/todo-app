@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
 
-function Form() {
-
-
-  
+function Form({ handleInput, handleSubmit }) {
 
   return (
     <StyledInput>
-        <input type="text" placeholder="Type your Todo"/>
+      <form onSubmit={handleSubmit}>
+        <input type="text" placeholder="Type your Todo" onChange={(event) => handleInput(event.target.value)} />
+
+        <button>Add Todo</button>
+      </form>
+
 
     </StyledInput>
   )

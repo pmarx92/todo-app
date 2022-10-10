@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 
-function Listitem() {
+function Listitem({ todoList }) {
     return (
         <ItemContainer>
-            <ul>
-                <li>Listitem</li>
-                <li>Listitem</li>
-                <li>Listitem</li>
-            </ul>
+            {todoList.map((todo) => {
+                return <ul key={todo.id}>
+                    <li>{todo.text}</li>
+                </ul>
+            })}
+
 
 
         </ItemContainer>
