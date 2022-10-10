@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 
-function Listitem({ todoList }) {
+function Listitem({ todoList, handleDelete }) {
     return (
         <ItemContainer>
             {todoList.map((todo) => {
-                return <ul key={todo.id}>
+                return <ul key={todo.id} >
+                    <button onClick={() => handleDelete(todo.id)}>x</button>
                     <li>{todo.text}</li>
                 </ul>
             })}

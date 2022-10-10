@@ -22,16 +22,23 @@ function App() {
       text: todo,
       completed: false,
     }
-    
+
     setTodoList([...todoList].concat(newTodo));
     console.log(todoList);
+  }
+
+  const handleDelete = (id) => {
+    const deleteList = [...todoList].filter((todo) => todo.id !== id);
+
+    setTodoList(deleteList);
+    console.log(id);
   }
 
   return (
     <div className="App">
       <Header title="Todo-App" />
       <Form handleInput={handleInput} handleSubmit={handleSubmit}/>
-      <Listitem todoList={todoList} />
+      <Listitem todoList={todoList} handleDelete={handleDelete}/>
 
     </div>
   );
