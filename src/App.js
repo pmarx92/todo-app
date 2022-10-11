@@ -9,6 +9,8 @@ function App() {
   const [todoList, setTodoList] = useState([]);
   const [todo, setTodo] = useState("");
 
+  const [editTodo, setEditTodo] = useState(null);
+  const [editText, setEditText] = useState("");
 
   const handleInput = (item) => {
     setTodo(item);
@@ -34,11 +36,27 @@ function App() {
     console.log(id);
   }
 
+  const toggleCompletion = (id) => {
+    const changeStatus = [...todoList].map((todo) => todo.id === id ? { ...todo, completed: !todo.completed } : todo);
+    setTodoList(changeStatus);
+
+    console.log(changeStatus);
+  }
+
+  const handleEdit = () => {
+
+  }
+
+  const handleChange = () => {
+
+  }
+
+
   return (
     <div className="App">
       <Header title="Todo-App" />
-      <Form handleInput={handleInput} handleSubmit={handleSubmit}/>
-      <Listitem todoList={todoList} handleDelete={handleDelete}/>
+      <Form handleInput={handleInput} handleSubmit={handleSubmit} />
+      <Listitem todoList={todoList} handleDelete={handleDelete} toggleCompletion={toggleCompletion} handleEdit={handleEdit} handleChange={handleChange}/>
 
     </div>
   );
