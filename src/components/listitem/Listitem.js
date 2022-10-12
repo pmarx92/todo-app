@@ -1,20 +1,20 @@
 import styled from "styled-components";
 
 
-function Listitem({ todoList, handleDelete, toggleCompletion, handleEdit, changeText }) {
+function Listitem({ todoList, handleDelete, toggleCompletion, handleEdit, handleChange, editTodo, submitEdit }) {
     return (
         <ItemContainer>
             {todoList.map((todo) => {
-                return <ul key={todo.id} >
+                return <div key={todo.id} >
                     <button onClick={() => handleDelete(todo.id)}>x</button>
-                    <li>{todo.text}</li>
-                    <input type="checkbox" onChange={() => toggleCompletion(todo.id)}/>
-                
-                    {editTodo === todo.id ? <input type="text" onChange={(event) => handleEdit(event.target.value)} /> : <li>{todo.text}</li>
-                    }
+                    <input type="checkbox" onChange={() => toggleCompletion(todo.id)} />
 
-                    <button onClick={() => changeText(todo.id)}> Edit</button>
-                </ul>
+                    {editTodo === todo.id ? (<input type="text" onChange={(event) => handleEdit(event.target.value)} />) : (<li>{todo.text}</li>
+                    )}
+
+                    <button onClick={() => handleChange(todo.id)}>Edit</button>
+                    <button onClick={() => submitEdit(todo.id)}>Submit Edit</button>
+                </div>
             })}
 
 

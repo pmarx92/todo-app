@@ -3,7 +3,7 @@ import styled from "styled-components";
 function Header(props) {
   return (
     <div>
-        <Headline>{props.title}</Headline>
+      <Headline>{props.title}</Headline>
     </div>
   )
 }

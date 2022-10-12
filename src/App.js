@@ -43,20 +43,23 @@ function App() {
     console.log(changeStatus);
   }
 
-  const handleEdit = () => {
-
+  const handleEdit = (value) => {
+    setEditText(value);
   }
 
-  const handleChange = () => {
-
+  const handleChange = (value) => {
+    setEditTodo(value);
   }
 
+  const submitEdit = (id) => {
+    setTodoList([...todoList].map((todo) => todo.id === id ? todo.text = editText : todo));
+  }
 
   return (
     <div className="App">
       <Header title="Todo-App" />
       <Form handleInput={handleInput} handleSubmit={handleSubmit} />
-      <Listitem todoList={todoList} handleDelete={handleDelete} toggleCompletion={toggleCompletion} handleEdit={handleEdit} handleChange={handleChange}/>
+      <Listitem todoList={todoList} handleDelete={handleDelete} toggleCompletion={toggleCompletion} handleEdit={handleEdit} handleChange={handleChange} editTodo={editTodo} submitEdit={submitEdit} />
 
     </div>
   );
