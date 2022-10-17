@@ -37,7 +37,6 @@ function App() {
 
   const handleDelete = (id) => {
     const deleteList = [...todoList].filter((todo) => todo.id !== id);
-
     setTodoList(deleteList);
     console.log(id);
   }
@@ -45,7 +44,6 @@ function App() {
   const toggleCompletion = (id) => {
     const changeStatus = [...todoList].map((todo) => todo.id === id ? { ...todo, completed: !todo.completed } : todo);
     setTodoList(changeStatus);
-
     console.log(changeStatus);
   }
 
@@ -60,8 +58,6 @@ function App() {
 
   const submitEdit = (id) => {
     setEditTodo([...todoList].map((todo) => todo.id === id ? todo.text = editText : todo));
-
-
     console.log(id);
   }
 
