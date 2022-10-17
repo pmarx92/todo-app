@@ -36,20 +36,15 @@ function App() {
   }
 
   const handleDelete = (id) => {
-    const deleteList = [...todoList].filter((todo) => todo.id !== id);
-    setTodoList(deleteList);
-    console.log(id);
+    setTodoList([...todoList].filter((todo) => todo.id !== id));
   }
 
   const toggleCompletion = (id) => {
-    const changeStatus = [...todoList].map((todo) => todo.id === id ? { ...todo, completed: !todo.completed } : todo);
-    setTodoList(changeStatus);
-    console.log(changeStatus);
+    setTodoList([...todoList].map((todo) => todo.id === id ? { ...todo, completed: !todo.completed } : todo));
   }
 
   const handleEdit = (value) => {
     setEditText(value);
-    console.log("value: " + value);
   }
 
   const handleChange = (value) => {
@@ -58,7 +53,6 @@ function App() {
 
   const submitEdit = (id) => {
     setEditTodo([...todoList].map((todo) => todo.id === id ? todo.text = editText : todo));
-    console.log(id);
   }
 
   return (
