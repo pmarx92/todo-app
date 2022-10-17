@@ -37,7 +37,7 @@ color: #fff;
 border: 0;
 width: 80px;
 border-radius: 5px;
-padding: 5px 6px;
+padding: 8px;
 `
 
 export default Form
