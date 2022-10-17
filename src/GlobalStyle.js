@@ -7,9 +7,15 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
   text-decoration: none;
   list-style: none;
-  background-color: #DEEFE7;
+  background-color: #B4BEC9;
+  color: #fff;
 }
-
+li {
+  justify-content: flex-start;
+  background-color: #DEEFE7;
+  color: black;
+  margin-right: 5rem;
+}
 body {
   font-family: sans-serif;
   margin: 0;

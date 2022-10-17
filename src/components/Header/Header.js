@@ -11,7 +11,7 @@ function Header(props) {
 const Headline = styled.h1`
 background-color: #002333;
 padding: 20px;
-box-shadow: 0 0 10px #fff;
+box-shadow: 0 0 10px #BFB78F;
 color: #fff;
 `
 
