@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-function Listitem({ todoList, handleDelete, toggleCompletion, handleEdit, handleChange, editTodo, submitEdit }) {
+function Listitem({ todoList, handleDelete, toggleCompletion, handleEdit, handleChange, editTodo, submitEdit, editText }) {
     return (
         <ItemContainer>
             {todoList.map((todo) => {
@@ -9,7 +9,7 @@ function Listitem({ todoList, handleDelete, toggleCompletion, handleEdit, handle
                     <button onClick={() => handleDelete(todo.id)}>x</button>
                     <input type="checkbox" onChange={() => toggleCompletion(todo.id)} />
 
-                    {editTodo === todo.id ? (<input type="text" onChange={(event) => handleEdit(event.target.value)} />) : (<li>{todo.text}</li>
+                    {editTodo === todo.id ? (<input type="text" onChange={(event) => handleEdit(event.target.value)} value={editText} />) : (<li>{todo.text}</li>
                     )}
 
                     <button onClick={() => handleChange(todo.id)}>Edit</button>

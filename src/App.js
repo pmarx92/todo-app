@@ -2,15 +2,21 @@ import './App.css';
 import Form from './components/form/Form';
 import Header from './components/Header/Header';
 import { nanoid } from 'nanoid'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Listitem from './components/listitem/Listitem';
+import { setLocalStorage, loadLocalStorage } from "../src/components/localStorage/Storage";
+
 
 function App() {
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState(loadLocalStorage("localSavedTodos") ?? []);
   const [todo, setTodo] = useState("");
 
-  const [editTodo, setEditTodo] = useState(null);
+  const [editTodo, setEditTodo] = useState([]);
   const [editText, setEditText] = useState("");
+
+  useEffect(() => {
+    setLocalStorage("localSavedTodos", todoList);
+  })
 
   const handleInput = (item) => {
     setTodo(item);
@@ -45,6 +51,7 @@ function App() {
 
   const handleEdit = (value) => {
     setEditText(value);
+    console.log("value: " + value);
   }
 
   const handleChange = (value) => {
@@ -52,7 +59,10 @@ function App() {
   }
 
   const submitEdit = (id) => {
-    setTodoList([...todoList].map((todo) => todo.id === id ? todo.text = editText : todo));
+    setEditTodo([...todoList].map((todo) => todo.id === id ? todo.text = editText : todo));
+
+
+    console.log(id);
   }
 
   return (
