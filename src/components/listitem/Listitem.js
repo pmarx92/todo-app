@@ -11,9 +11,7 @@ function Listitem({ todoList, handleDelete, toggleCompletion, handleEdit, handle
 
                     {editTodo === todo.id ? (<input type="text" onChange={(event) => handleEdit(event.target.value)} value={editText} />) : (<li>{todo.text}</li>
                     )}
-
-                    <button onClick={() => handleChange(todo.id)}>Edit</button>
-                    <button onClick={() => submitEdit(todo.id)}>Submit Edit</button>
+                    {editTodo === todo.id ? (<button onClick={() => submitEdit(todo.id)}>Submit Edit</button>) : (<button onClick={() => handleChange(todo.id)}>Edit</button>)}
                 </div>
             })}
 
